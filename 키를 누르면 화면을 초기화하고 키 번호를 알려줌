@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<conio.h>
+#include<windows.h>
+
+int main() {
+	
+	int key;
+	while(1) {
+		
+		key = getch();
+		system("cls");
+		printf("key is %d",key); //키의 번호 알려줌  
+		
+	}
+	
+	return 0;
+}
+
