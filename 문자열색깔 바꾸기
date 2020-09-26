@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <windows.h>
+
+void chColor(int n) {
+	
+	SetConsoleTextAttribute( GetStdHandle( STD_OUTPUT_HANDLE), n);
+}
+
+int main(void)
+{
+	
+	chColor(6);
+	printf("hello\n");
+	
+	chColor(4);
+	printf("c programming\n");
+	
+	chColor(5);
+	printf("김\n");
+	
+	
+	return 0;
+}
+	
+//	검은색 0
+//	파란색 1
+//	녹색 2
+//	청록색 3
+//	빨간색 4
+//	자주색 5
+//	노란색 6
+//	흰색 7 
