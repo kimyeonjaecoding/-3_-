@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<windows.h>
+
+enum COLOR {BLACK=0,BLUE,GREEN,BLUEGREEN,RED,PURPLE,YELLOW,WHITE};
+
+void chColor(int n) {
+	
+	SetConsoleTextAttribute( GetStdHandle( STD_OUTPUT_HANDLE), n);
+}
+
+int main(void)
+{
+	
+	chColor(YELLOW);
+	printf("hello\n");
+	
+	chColor(PURPLE);
+	printf("c programming\n");
+	
+	return 0;
+}
+
+	
