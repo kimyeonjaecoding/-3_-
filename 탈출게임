@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<conio.h>
+#include<windows.h>
+
+#include<stdio.h>
+#include<conio.h>
+#include<windows.h>
+
+void gotoxy(int x, int y); // gotoxy 함수가 main 아래에 있다는 것을 알려줍니다. 
+void chColor(int n);
+
+
+int main()
+{
+	system("mode con: cols=50 lines=25");
+	
+	// w,a,s,d 키를 이용하여 사각형 캐릭터를움직입니다.
+	
+	int key;
+	int x=10,y=5;
+	
+	gotoxy(x,y); // x는10 y는5로 가세용  
+	printf("@ ");
+	
+	gotoxy(16,14); // x는10 y는5로 가세용  
+	chColor(2);
+	printf("@ ");
+	chColor(7);
+	
+	while(1) //무한반복! 키 누르면 좌표가 움직임  
+	{
+		key = getch();
+		switch(key)
+		{
+			case 119: y--; break; //w 
+			case 97: x-=2; break; //a
+			case 115: y++; break; //s
+			case 100: x+=2; break; //d
+		}
+		
+		
+		
+		system("cls"); //
+		gotoxy(x,y);
+		printf("@ ");
+		
+	gotoxy(16,14); // x는10 y는5로 가세용  
+	chColor(2);
+	printf("@ ");
+	chColor(7);
+	
+	if (x==16 && y==14 ) 
+	{
+		system("cls");
+		printf("성공");
+		break;
+	}
+	
+	
+	
+	
+	
+		
+		
+	}
+	return 0 ;
+}
+
+void gotoxy(int x, int y)
+{
+	COORD Pos = {x,y};
+	SetConsoleCursorPosition( GetStdHandle( STD_OUTPUT_HANDLE), Pos);
+}
+
+void chColor(int n) {
+	
+	SetConsoleTextAttribute( GetStdHandle( STD_OUTPUT_HANDLE), n);
+}
