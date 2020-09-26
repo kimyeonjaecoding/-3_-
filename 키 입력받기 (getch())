@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<conio.h>
+
+int main() {
+	
+	int key;
+	while(1) {
+		
+		key= getch();
+		
+		printf("key is %c(아스키코드번호:%d)\n",key,key);
+		
+	}
+	
+	return 0;
+}
+	
