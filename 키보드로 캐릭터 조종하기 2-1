@@ -1,0 +1,108 @@
+#include <stdio.h>
+#include <windows.h>
+#include <conio.h>
+
+void gotoxy(int x, int y); 
+
+int main()
+{
+	system("mode con: cols=50 lines=50");
+	
+	int key;
+	int x=10,y=5;
+	int ox,oy;
+	
+	gotoxy(x,y); //x,y 의 좌표로 가서 @프린트하기  
+	printf("@");
+	
+	while(1)
+	{
+		key = getch(); // 키를 누르자마자 실행  
+		ox=x;
+		oy=y;
+		switch(key)
+		{
+			case 119: y--; break; // w== 119 
+			case 97: x-=2; break; //a
+			case 115: y++; break; //s
+			case 100: x+=2; break; //d
+			
+		}
+		
+		//이전위치로 가서 지우기 
+		gotoxy(ox,oy);
+		printf("  "); // 공백 2개 
+		
+		if (x<10)
+		{
+			x=ox; //업데이트 된 x값으로 옛날위치로 돌아간다  
+		}
+		if (x>30)
+		{
+			x=ox;
+		}
+		if (y<2)
+		{
+			y=oy;
+		}
+		if (y>10)
+		{
+			y=oy;
+		}
+		
+		
+		gotoxy(16,10);
+		printf("E");
+		
+		
+		
+			 
+		 
+		
+		//새로운 위치에 그리기 
+		gotoxy(x,y);
+		printf("@");
+		
+		
+		
+		if (x==16&&y==10)
+		{
+			gotoxy(40,20);
+			printf("탈출성공");
+		}
+	
+		
+		gotoxy(40,15);
+		printf("%d,%d\n",x,y);
+	
+	}
+	
+	return 0;
+}
+
+void gotoxy(int x,int y)
+{
+	COORD Pos = { x, y };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
+}
+
+	
+	
+	
+	
+	//만약에 @이의 x값이 ~보다 작으면 이전위치로 돌아가기 
+	//만약에 @이의 x값이 ~보다 크면 이전위치로 돌아가기 
+	
+	//만약에 @이의 y값이 ~보다 작으면 이전위치로 돌아가기 
+	//만약에 @이의 y값이 ~보다 크면 이전위치로 돌아가기 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ 
