@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+//int 와 float을 묶어서 struct person 만들기
+
+struct bycicle{ 
+	int wheel;
+	int person;
+	int howMuch;
+
+};
+
+
+int main()
+{
+	struct bycicle dooli;	//struct person 형식을 갖는 dooli를 만듭니다.
+	
+	dooli.wheel = 2;	 // 이 때 .(점)은 ~의 로 해석됨
+	dooli.person = 1;
+	dooli.howMuch = 55;
+	
+	
+	printf("%d\n",dooli.wheel); 
+	printf("%d\n",dooli.person);
+	printf("%d\n",dooli.howMuch);
+	return 0;
+	
+}
